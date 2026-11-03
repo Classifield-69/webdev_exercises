@@ -1,0 +1,8 @@
+// The messages a client sends, in order. Each line: what to send and what your server must answer.
+{"name":"initialize answered","expect":"initialize","message":{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"course-check","version":"1.0.0"}}}}
+{"name":"notification gets no reply","expect":"silence","message":{"jsonrpc":"2.0","method":"notifications/initialized"}}
+{"name":"tools/list returns your tools","expect":"tools","message":{"jsonrpc":"2.0","id":2,"method":"tools/list"}}
+{"name":"find_lecture returns lecture 5","expect":"lecture","message":{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"find_lecture","arguments":{"number":5}}}}
+{"name":"a lecture that does not exist is a tool error","expect":"tool-error","message":{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"find_lecture","arguments":{"number":99}}}}
+{"name":"unknown tool is a protocol error (-32602)","expect":"code","code":-32602,"message":{"jsonrpc":"2.0","id":5,"method":"tools/call","params":{"name":"no_such_tool","arguments":{}}}}
+{"name":"unknown method is a protocol error (-32601)","expect":"code","code":-32601,"message":{"jsonrpc":"2.0","id":6,"method":"nonsense/method"}}

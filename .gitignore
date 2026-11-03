@@ -1,0 +1,21 @@
+# dependencies
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+
+# secrets and local config
+.env
+.env.*
+!.env.example
+
+# local databases and build output
+*.db
+*.sqlite
+*.sqlite3
+dist/
+build/
+coverage/
+
+# editor and OS files
+.DS_Store

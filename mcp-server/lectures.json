@@ -1,0 +1,52 @@
+[
+  {
+    "number": 1,
+    "title": "How models and agents work",
+    "topics": "Tokens, prediction, variance, the agent loop"
+  },
+  {
+    "number": 2,
+    "title": "Agent anatomy and MCP",
+    "topics": "Tools, the handshake, how the model picks a tool"
+  },
+  {
+    "number": 3,
+    "title": "Context and specs",
+    "topics": "4 context failure modes, using the spec to control the agent"
+  },
+  {
+    "number": 4,
+    "title": "Autonomy and collaboration",
+    "topics": "How much to delegate, where to put checkpoints"
+  },
+  {
+    "number": 5,
+    "title": "What the agent built, part 1",
+    "topics": "HTTP, REST vs GraphQL, data modeling, ORM, layers"
+  },
+  {
+    "number": 6,
+    "title": "What the agent built, part 2",
+    "topics": "Components, state, SSR/CSR, containers, CI, environments"
+  },
+  {
+    "number": 7,
+    "title": "Evaluating output",
+    "topics": "Non-determinism, false positives, when to trust it"
+  },
+  {
+    "number": 8,
+    "title": "Testing and security of generated code",
+    "topics": "Plus the classic attacks: CSRF, injection, DDoS"
+  },
+  {
+    "number": 9,
+    "title": "Working in someone else's codebase",
+    "topics": "Mapping it, constraints, extending it"
+  },
+  {
+    "number": 10,
+    "title": "Inference economics and project defenses",
+    "topics": "What running a model costs, and presenting your project"
+  }
+]

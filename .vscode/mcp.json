@@ -1,0 +1,11 @@
+{
+  "// note": "Your own MCP server, so the agent can drive your project. Exercise 1 creates it; from Exercise 3 its tools reach your real data. Copilot's key is 'servers'; Gemini CLI uses 'mcpServers' in .gemini/settings.json.",
+  "servers": {
+    "my-project": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["mcp-server/server.js"],
+      "env": { "MCP_TOKEN": "${env:MCP_TOKEN}" }
+    }
+  }
+}

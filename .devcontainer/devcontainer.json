@@ -1,0 +1,49 @@
+{
+  // Web Development course workspace. Opens in GitHub Codespaces: nothing is installed on your laptop.
+  "name": "Web Development course",
+  // prebuilt Python image, so the first start does not compile Python; Node installs as a binary
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "22" },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  // the default 2-core machine is enough and uses the free quota slowest
+  "hostRequirements": { "cpus": 2 },
+  // Your keys live here, not in the repository. Codespaces asks for them once, per repository,
+  // and injects them as environment variables. A key in git is a key you have to rotate.
+  "secrets": {
+    "GEMINI_API_KEY": {
+      "description": "Free key for the model feature, from aistudio.google.com. Any provider is fine; this is the one the course recommends.",
+      "documentationUrl": "https://ai.google.dev/gemini-api/docs/api-key"
+    },
+    "GOOGLE_CLIENT_ID": {
+      "description": "OAuth client id for Sign in with Google. Create the client in Google Cloud and leave it in Testing mode.",
+      "documentationUrl": "https://developers.google.com/identity/protocols/oauth2/web-server"
+    },
+    "GOOGLE_CLIENT_SECRET": {
+      "description": "The matching client secret. It stays on your server: a browser can never be trusted with it.",
+      "documentationUrl": "https://developers.google.com/identity/protocols/oauth2/web-server"
+    }
+  },
+  "forwardPorts": [3000, 5173, 8000],
+  "portsAttributes": {
+    "3000": { "label": "app (Node)" },
+    "5173": { "label": "frontend dev server" },
+    "8000": { "label": "app (Python)" }
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y --no-install-recommends sqlite3 && npm install -g @google/gemini-cli",
+  "postAttachCommand": "echo 'Workspace ready. Start the agent with: gemini'",
+  "customizations": {
+    "vscode": {
+      "extensions": ["GitHub.copilot-chat", "ms-python.python", "qwtel.sqlite-viewer"],
+      "settings": {
+        "files.trimTrailingWhitespace": true,
+        "editor.formatOnSave": false
+      }
+    },
+    "codespaces": {
+      "openFiles": ["README.md"]
+    }
+  }
+}
